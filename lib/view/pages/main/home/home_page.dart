@@ -1,4 +1,5 @@
 import 'package:beamin_prototype/theme.dart';
+import 'package:beamin_prototype/view/pages/main/components/store_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,9 +25,9 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          _bulidStore("치킨집", "네네치킨"),
-          _bulidStore("피자집", "도미노피자"),
-          _bulidStore("보쌈집", "원할머니보쌈")
+          StoreList(img: "치킨집", storeName: "네네치킨"),
+          StoreList(img: "피자집", storeName: "도미노피자"),
+          StoreList(img: "보쌈집", storeName: "원할머니보쌈"),
         ],
       ),
     );
@@ -78,46 +79,53 @@ class HomePage extends StatelessWidget {
   }
 }
 
-Padding _bulidStore(String img, String storeName) {
-  return Padding(
-    padding: const EdgeInsets.all(16),
-    child: Row(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Image.asset(
-            "assets/images/store_image/${img}.jpg",
-            width: 115,
-            height: 115,
-            fit: BoxFit.cover,
-          ),
-        ),
-        SizedBox(width: 16),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("${storeName}"),
-            SizedBox(height: 8),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Icon(CupertinoIcons.star_fill, size: 16, color: Colors.orangeAccent),
-                Icon(CupertinoIcons.star_fill, size: 16, color: Colors.orangeAccent),
-                Icon(CupertinoIcons.star_fill, size: 16, color: Colors.orangeAccent),
-                Icon(CupertinoIcons.star_fill, size: 16, color: Colors.orangeAccent),
-                Icon(CupertinoIcons.star, size: 16, color: Colors.orangeAccent),
-              ],
-            ),
-            SizedBox(height: 8),
-            Text("배달 예상 시간 : 38 ~ 42분"),
-            SizedBox(height: 8),
-            Text("${storeName} 주운나 마싯어연 ^^"),
-          ],
-        )
-      ],
-    ),
-  );
-}
+// Padding _bulidStore(String img, String storeName) {
+//   return Padding(
+//     padding: const EdgeInsets.all(16),
+//     child: Row(
+//       children: [
+//         ClipRRect(
+//           borderRadius: BorderRadius.circular(20),
+//           child: Image.asset(
+//             "assets/images/store_image/${img}.jpg",
+//             width: 115,
+//             height: 115,
+//             fit: BoxFit.cover,
+//           ),
+//         ),
+//         SizedBox(width: 16),
+//         Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             Text(
+//               "${storeName}",
+//               style: textTheme().headline2,
+//             ),
+//             SizedBox(height: 8),
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.start,
+//               children: [
+//                 Icon(CupertinoIcons.star_fill, size: 16, color: Colors.orangeAccent),
+//                 SizedBox(width: 4),
+//                 Text(
+//                   "4.2   (리뷰: 12)",
+//                   style: textTheme().bodyText2,
+//                 ),
+//               ],
+//             ),
+//             SizedBox(height: 4),
+//             Text(
+//               "배달비: 3000원",
+//               style: textTheme().bodyText2,
+//             ),
+//             SizedBox(height: 4),
+//             Text("배달 예상 시간: 38 ~ 42분"),
+//           ],
+//         )
+//       ],
+//     ),
+//   );
+// }
 
 Row _bulidCategory1() {
   return Row(

@@ -125,14 +125,6 @@ class MyBeamin extends StatelessWidget {
           width: 16,
         )
       ],
-      bottom: PreferredSize(
-        preferredSize: Size.fromHeight(0.5),
-        child: Divider(
-          thickness: 1,
-          height: 1,
-          color: Colors.grey,
-        ),
-      ),
     );
   }
 }

@@ -23,7 +23,7 @@ class OrderList extends StatelessWidget {
     return AppBar(
       title: Text("주문내역", style: textTheme().headline1),
       centerTitle: true,
-      elevation: 1.0,
+      elevation: 1,
       leading: IconButton(
         onPressed: () {},
         icon: Icon(
@@ -53,14 +53,6 @@ class OrderList extends StatelessWidget {
           width: 16,
         )
       ],
-      bottom: PreferredSize(
-        preferredSize: Size.fromHeight(0.5),
-        child: Divider(
-          thickness: 1,
-          height: 1,
-          color: Colors.grey,
-        ),
-      ),
     );
   }
 }
