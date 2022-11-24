@@ -49,8 +49,8 @@ ThemeData theme() {
 BottomNavigationBarThemeData bottomNavigationBarTheme() {
   return BottomNavigationBarThemeData(
     type: BottomNavigationBarType.fixed,
-    selectedItemColor: Colors.lightBlueAccent,
+    selectedItemColor: Colors.deepOrange,
     backgroundColor: Colors.white,
-    unselectedItemColor: Colors.black,
+    unselectedItemColor: Colors.grey[400],
   );
 }

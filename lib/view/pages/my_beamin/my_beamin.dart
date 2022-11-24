@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:beamin_prototype/theme.dart';
+import 'package:beamin_prototype/view/pages/main/home/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,11 +11,49 @@ class MyBeamin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar: _buildAppBar(context),
       body: Column(
         children: [
           _buildUserTitle(),
+          Row(
+            children: [
+              _buildMenu(CupertinoIcons.doc_plaintext, "주문 내역"),
+              VerticalDivider(thickness: 1, color: Colors.blue),
+              _buildMenu(CupertinoIcons.chat_bubble_2, "리뷰 관리"),
+              _buildMenu(CupertinoIcons.heart, "찜한 가게"),
+            ],
+          ),
+          Divider(
+            height: 10,
+            thickness: 10,
+            color: Colors.grey[200],
+          ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildMenu(CupertinoIcons, String msg) {
+    return Expanded(
+      child: TextButton(
+        onPressed: () {},
+        child: Container(
+          height: 75,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                CupertinoIcons,
+                size: 26,
+                color: Colors.grey[500],
+              ),
+              Text(
+                "${msg}",
+                style: textTheme().bodyText2,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -37,7 +78,12 @@ class MyBeamin extends StatelessWidget {
                   ),
                 ),
                 Align(alignment: Alignment.center, child: Text("ssar님 반갑습니다!", style: textTheme().headline1)),
-                IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.right_chevron)),
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      CupertinoIcons.right_chevron,
+                      size: 28,
+                    )),
               ],
             ),
           ),
@@ -51,7 +97,7 @@ class MyBeamin extends StatelessWidget {
     );
   }
 
-  AppBar _buildAppBar() {
+  AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       title: Text("My 배민", style: textTheme().headline1),
       centerTitle: true,
@@ -60,16 +106,18 @@ class MyBeamin extends StatelessWidget {
         onPressed: () {},
         icon: Icon(
           CupertinoIcons.left_chevron,
-          size: 35,
+          size: 28,
           color: Colors.black,
         ),
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context, MaterialPageRoute(builder: (context) => HomePage()));
+          },
           icon: Icon(
             CupertinoIcons.home,
-            size: 35,
+            size: 28,
             color: Colors.black,
           ),
         ),

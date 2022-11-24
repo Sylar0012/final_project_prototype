@@ -1,9 +1,9 @@
 import 'package:beamin_prototype/theme.dart';
 import 'package:beamin_prototype/view/pages/main/home/home_page.dart';
-import 'package:beamin_prototype/view/pages/main/my_beamin/my_beamin.dart';
 import 'package:beamin_prototype/view/pages/main/order_list/order_list.dart';
 import 'package:beamin_prototype/view/pages/main/pavorite_store/pavorite_store.dart';
 import 'package:beamin_prototype/view/pages/main/search/search.dart';
+import 'package:beamin_prototype/view/pages/my_beamin/my_beamin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -21,9 +21,18 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
+          setState(
+            () {
+              _selectedIndex = index;
+              if (_selectedIndex == 4) {
+                _selectedIndex = 0;
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyBeamin()),
+                );
+              }
+            },
+          );
         },
         currentIndex: _selectedIndex,
         items: [
@@ -31,7 +40,20 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(label: "검색", icon: Icon(CupertinoIcons.search)),
           BottomNavigationBarItem(label: "찜한가게", icon: Icon(CupertinoIcons.heart)),
           BottomNavigationBarItem(label: "주문내역", icon: Icon(CupertinoIcons.doc_plaintext)),
-          BottomNavigationBarItem(label: "My배민", icon: Icon(CupertinoIcons.person_circle)),
+          BottomNavigationBarItem(
+            label: "My 배민",
+            icon: IconButton(
+              padding: EdgeInsets.zero, // 패딩 설정
+              constraints: BoxConstraints(),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MyBeamin()));
+              },
+              icon: Icon(
+                CupertinoIcons.person_circle,
+                size: 24,
+              ),
+            ),
+          ),
         ],
       ),
       body: IndexedStack(
@@ -41,7 +63,7 @@ class _MainPageState extends State<MainPage> {
           Search(),
           PavoriteStore(),
           OrderList(),
-          MyBeamin(),
+          HomePage(),
         ],
       ),
     );
