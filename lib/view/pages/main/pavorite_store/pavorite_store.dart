@@ -9,7 +9,7 @@ class PavoriteStore extends StatelessWidget {
       color: Colors.blue[300],
       child: Center(
         child: Text(
-          "찜한 가게",
+          "찜한 가게fdfsafdsa",
           style: TextStyle(
             color: Colors.white,
             fontSize: 50,
