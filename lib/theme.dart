@@ -31,7 +31,7 @@ ThemeData theme() {
     scaffoldBackgroundColor: Colors.white,
     textTheme: textTheme(),
     appBarTheme: appTheme(),
-    primaryColor: Colors.lightBlueAccent,
+    primaryColor: Color.fromRGBO(51, 102, 255, 1),
     bottomNavigationBarTheme: bottomNavigationBarTheme(),
   );
 }
@@ -39,8 +39,8 @@ ThemeData theme() {
 BottomNavigationBarThemeData bottomNavigationBarTheme() {
   return BottomNavigationBarThemeData(
     type: BottomNavigationBarType.fixed,
-    selectedItemColor: Colors.lightBlueAccent,
+    selectedItemColor: Colors.orange,
     backgroundColor: Colors.white,
-    unselectedItemColor: Colors.black,
+    unselectedItemColor: Colors.grey,
   );
 }

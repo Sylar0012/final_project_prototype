@@ -1,3 +1,4 @@
+import 'package:beamin_prototype/view/pages/store_detail/store_detail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,84 +7,87 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
-        Container(
-          height: 300,
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.asset(
-                "assets/images/home_page_image/aa11.jpg",
-                fit: BoxFit.cover,
+        Column(
+          children: [
+            Container(
+              height: 300,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    "assets/images/home_page_image/aa11.jpg",
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-        Container(
-          child: Padding(
-            padding: const EdgeInsets.only(right: 16, left: 16, bottom: 16),
-            child: Column(
-              children: [
-                _bulidCategory1(),
-                SizedBox(height: 8),
-                _bulidCategory2(),
-              ],
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 16, left: 16, bottom: 16),
+                child: Column(
+                  children: [
+                    _bulidCategory1(),
+                    SizedBox(height: 8),
+                    _bulidCategory2(),
+                  ],
+                ),
+              ),
             ),
-          ),
+            _bulidStore(context, "치킨집", "네네치킨"),
+            _bulidStore(context, "피자집", "도미노피자"),
+            _bulidStore(context, "보쌈집", "원할머니보쌈")
+          ],
         ),
-        Expanded(
-          child: ListView(
-            children: [
-              _bulidStore("치킨집", "네네치킨"),
-              _bulidStore("피자집", "도미노피자"),
-              _bulidStore("보쌈집", "원할머니보쌈"),
-            ],
-          ),
-        )
       ],
     );
   }
 }
 
-Padding _bulidStore(String img, String storeName) {
-  return Padding(
-    padding: const EdgeInsets.all(16),
-    child: Row(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Image.asset(
-            "assets/images/store_image/${img}.jpg",
-            width: 115,
-            height: 115,
-            fit: BoxFit.cover,
-          ),
-        ),
-        SizedBox(width: 8),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("${storeName}"),
-            SizedBox(height: 8),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Icon(CupertinoIcons.star_fill, size: 16),
-                Icon(CupertinoIcons.star_fill, size: 16),
-                Icon(CupertinoIcons.star_fill, size: 16),
-                Icon(CupertinoIcons.star_fill, size: 16),
-                Icon(CupertinoIcons.star, size: 16),
-              ],
+Widget _bulidStore(BuildContext context, String img, String storeName) {
+  return InkWell(
+    onTap: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => StoreDetail()));
+    },
+    child: Padding(
+      padding: const EdgeInsets.all(16),
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image.asset(
+              "assets/images/store_image/${img}.jpg",
+              width: 115,
+              height: 115,
+              fit: BoxFit.cover,
             ),
-            SizedBox(height: 8),
-            Text("배달 예상 시간 : 38 ~ 42분"),
-            SizedBox(height: 8),
-            Text("${storeName} 주운나 마싯어연 ^^"),
-          ],
-        )
-      ],
+          ),
+          SizedBox(width: 8),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("${storeName}"),
+              SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Icon(CupertinoIcons.star_fill, size: 16),
+                  Icon(CupertinoIcons.star_fill, size: 16),
+                  Icon(CupertinoIcons.star_fill, size: 16),
+                  Icon(CupertinoIcons.star_fill, size: 16),
+                  Icon(CupertinoIcons.star, size: 16),
+                ],
+              ),
+              SizedBox(height: 8),
+              Text("배달 예상 시간 : 38 ~ 42분"),
+              SizedBox(height: 8),
+              Text("${storeName} 주운나 마싯어연 ^^"),
+            ],
+          )
+        ],
+      ),
     ),
   );
 }
