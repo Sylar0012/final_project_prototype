@@ -137,7 +137,7 @@ class StoreReview extends StatelessWidget {
           SizedBox(height: gap_s),
           _bulidUserReview("김민철", "양념치킨, 후라이드 치킨", 4),
           SizedBox(height: gap_s),
-          _bulidReviewImg("치킨집"),
+          _bulidReviewImg(img: "치킨집"),
           SizedBox(height: gap_s),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: gap_s),
@@ -151,7 +151,7 @@ class StoreReview extends StatelessWidget {
           SizedBox(height: gap_s),
           _bulidUserReview("이성진", "양념치킨 2", 5),
           SizedBox(height: gap_s),
-          _bulidReviewImg("치킨집"),
+          _bulidReviewImg(img: "치킨집"),
           SizedBox(height: gap_s),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: gap_s),
@@ -161,7 +161,21 @@ class StoreReview extends StatelessWidget {
             ),
           ),
           SizedBox(height: gap_s),
-          _bulidOwnerComent("윗분과 다르게 착하신 분이군요! 다음에 서비스로 콜라 드리겠습니다 ㅎㅎ"),
+          _bulidOwnerComent("감사합니다! 다음에 서비스로 콜라 드리겠습니다 ㅎㅎ"),
+          SizedBox(height: gap_s),
+          _bulidUserReview("맛없으면 짖는 개", "양념치킨 1", 1),
+          SizedBox(height: gap_s),
+          _bulidReviewImg(),
+          SizedBox(height: gap_s),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: gap_s),
+            child: Text(
+              "왈왈 으르르 컹컹어ㅓ커엉ㅋ!",
+              style: TextTheme().bodyText1,
+            ),
+          ),
+          SizedBox(height: gap_s),
+          _bulidOwnerComent("개새끼가 치킨을 먹나요? 신고하겠습니다 ^^"),
         ],
       ),
     );
@@ -204,16 +218,20 @@ Widget _bulidOwnerComent(String Comment) {
   );
 }
 
-Widget _bulidReviewImg(String img) {
-  return Container(
-    padding: const EdgeInsets.symmetric(horizontal: gap_s),
-    height: 200,
-    width: double.infinity,
-    child: Image.asset(
-      "assets/images/store_image/${img}.jpg",
-      fit: BoxFit.cover,
-    ),
-  );
+Widget _bulidReviewImg({String? img}) {
+  if (img != null) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: gap_s),
+      height: 200,
+      width: double.infinity,
+      child: Image.asset(
+        "assets/images/store_image/${img}.jpg",
+        fit: BoxFit.cover,
+      ),
+    );
+  } else {
+    return Container();
+  }
 }
 
 Widget _bulidUserReview(String nickName, String orderList, starPoint) {

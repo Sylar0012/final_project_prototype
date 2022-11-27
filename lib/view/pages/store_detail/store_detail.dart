@@ -22,11 +22,6 @@ class _StoreDetailState extends State<StoreDetail> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              IconButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage()));
-                  },
-                  icon: Icon(CupertinoIcons.left_chevron)),
               Container(
                 height: 300,
                 decoration: BoxDecoration(
