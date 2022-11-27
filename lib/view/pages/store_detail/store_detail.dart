@@ -1,6 +1,7 @@
 import 'package:beamin_prototype/constants.dart';
 import 'package:beamin_prototype/size.dart';
 import 'package:beamin_prototype/view/pages/main/main_page.dart';
+import 'package:beamin_prototype/view/pages/store_detail/review/store_review.dart';
 import 'package:beamin_prototype/view/pages/store_detail/store_info/store_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -128,7 +129,7 @@ class _StoreDetailState extends State<StoreDetail> {
                 children: [
                   _bulidStoreCategory(context, "메뉴", StoreDetail()),
                   _bulidStoreCategory(context, "정보", StoreInfo()),
-                  _bulidStoreCategory(context, "리뷰", StoreInfo()),
+                  _bulidStoreCategory(context, "리뷰", StoreReview()),
                 ],
               ),
               Divider(
