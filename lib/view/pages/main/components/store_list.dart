@@ -1,4 +1,5 @@
 import 'package:beamin_prototype/theme.dart';
+import 'package:beamin_prototype/view/pages/store_detail/store_detail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,55 +10,48 @@ class StoreList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
-                  "assets/images/store_image/${img}.jpg",
-                  width: 115,
-                  height: 115,
-                  fit: BoxFit.cover,
-                ),
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => StoreDetail()));
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset(
+                "assets/images/store_image/${img}.jpg",
+                width: 115,
+                height: 115,
+                fit: BoxFit.cover,
               ),
-              SizedBox(width: 16),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "${storeName}",
-                    style: textTheme().headline2,
-                  ),
-                  SizedBox(height: 8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Icon(CupertinoIcons.star_fill, size: 16, color: Colors.orangeAccent),
-                      SizedBox(width: 4),
-                      Text(
-                        "4.2   (리뷰: 12)",
-                        style: textTheme().bodyText2,
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    "배달비: 3000원",
-                    style: textTheme().bodyText2,
-                  ),
-                  SizedBox(height: 4),
-                  Text("배달 예상 시간: 38 ~ 42분"),
-                ],
-              )
-            ],
-          ),
+            ),
+            SizedBox(width: 8),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("${storeName}"),
+                SizedBox(height: 8),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(CupertinoIcons.star_fill, size: 16),
+                    Icon(CupertinoIcons.star_fill, size: 16),
+                    Icon(CupertinoIcons.star_fill, size: 16),
+                    Icon(CupertinoIcons.star_fill, size: 16),
+                    Icon(CupertinoIcons.star, size: 16),
+                  ],
+                ),
+                SizedBox(height: 8),
+                Text("배달 예상 시간 : 38 ~ 42분"),
+                SizedBox(height: 8),
+                Text("${storeName} 주운나 마싯어연 ^^"),
+              ],
+            )
+          ],
         ),
-        Divider(thickness: 2, height: 2, color: Colors.grey[200]),
-      ],
+      ),
     );
   }
 }

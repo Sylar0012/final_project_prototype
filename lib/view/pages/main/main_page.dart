@@ -1,4 +1,3 @@
-import 'package:beamin_prototype/theme.dart';
 import 'package:beamin_prototype/view/pages/main/home/home_page.dart';
 import 'package:beamin_prototype/view/pages/main/order_list/order_list.dart';
 import 'package:beamin_prototype/view/pages/main/pavorite_store/pavorite_store.dart';
@@ -46,7 +45,7 @@ class _MainPageState extends State<MainPage> {
               padding: EdgeInsets.zero, // 패딩 설정
               constraints: BoxConstraints(),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyBeamin()));
+                Navigator;
               },
               icon: Icon(
                 CupertinoIcons.person_circle,
